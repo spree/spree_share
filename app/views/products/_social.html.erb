@@ -1,5 +1,10 @@
-<div style="display: inline;float: left;width: 270px;margin: 10px 0"><fb:like show_faces="true" width="450" font="verdana"></fb:like></div>
-
+<div style="display: inline;float: left;width: 270px;margin: 10px 0">
+  <% @share_methods.each do |sm| %>
+      <% if sm.preferred_provider == "facebook" %>
+        <fb:like layout=<%= "#{sm.preferred_layout}" %> show_faces=<%= "#{sm.preferred_show_faces}" %> width=<%= "#{sm.preferred_width}" %> action=<%= "#{sm.preferred_verb}" %> font=<%= "#{sm.preferred_font}" %> colorscheme=<%= "#{sm.preferred_color}"%>></fb:like>
+      <% end %>
+  <% end %>
+</div>
 <% content_for :head do %>
   <%= javascript_include_tag("http://connect.facebook.net/en_US/all.js#xfbml=1")%>
   <%= tag('meta', :property => 'og:title', :content => @product.name) %>

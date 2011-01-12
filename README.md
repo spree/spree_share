@@ -1,13 +1,7 @@
-SpreeFacebook
+Spree Share
 =============
 
-Introduction goes here.
+Creates the "Like" buttons for products. Support only Facebook at the moment
 
 
-Example
-=======
-
-Example goes here.
-
-
-Copyright (c) 2010 [name of extension creator], released under the New BSD License
+Copyright (c) 2010 John Brien Dilts, released under the New BSD License

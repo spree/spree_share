@@ -1,0 +1,9 @@
+en:
+  share_settings: Social sharing settings
+  share_settings_description: Configure "like" buttons and other social sharing settings (Current only Facebook is supported)
+  fb_layout_style: Layout Style
+  fb_show_faces: Show Faces
+  fb_width: Width
+  fb_verb: Verb to Display
+  fb_font: Font
+  fb_color: Color Scheme

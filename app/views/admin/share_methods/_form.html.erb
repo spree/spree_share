@@ -1,0 +1,70 @@
+<div class="yui-g">
+  <div class="yui-u first">
+    <%= f.hidden_field :name, :value => "facebook" %>
+    <p>
+      <label><%= t("environment") %></label>
+      <br/>
+      <%= f.collection_select(:environment,
+                              Configuration.configurations.keys.sort,
+                              :to_s, :titleize,
+                              {}, {:id => "gtwy-env"}) %>
+    </p>
+
+    <p>
+      <%= f.check_box :active, {:style => "vertical-align:middle;"} %>
+      <label>
+        <%= t('social_enable_provider') %>
+      </label>
+    </p>
+
+    <p>
+      <label><%= t("fb_layout_style") %></label>
+      <br/>
+      <%= f.select :preferred_layout, ["standard", "button_count", "box_count"], {}, {:onchange => "javascript:fb_generator('');"} %>
+    </p>
+
+    <p>
+      <%= f.check_box :preferred_show_faces, {:style => "vertical-align:middle;", :onchange => "javascript:fb_generator('');"} %>
+      <label>
+        <%= t('fb_show_faces') %>
+      </label>
+    </p>
+
+    <p>
+      <label><%= t('fb_width') %></label><br/>
+      <%= f.text_field :preferred_width, :size => 40, :maxlength => 4, :onchange => "javascript:fb_generator('');" %>
+      <br/>
+        <span class="info">
+          <%= t("fb_width") %>
+        </span>
+    </p>
+
+    <p>
+      <label><%= t('fb_verb') %></label><br/>
+      <%= f.select :preferred_verb, ["like", "recommend"], {}, {:onchange => "javascript:fb_generator('');"} %>
+      <br/>
+        <span class="info">
+          <%= t("fb_verb") %>
+        </span>
+    </p>
+
+    <p>
+      <label><%= t('fb_font') %></label><br/>
+      <%= f.select :preferred_font, ["arial", "lucida grande", "segoe ui", "tahoma", "trebuchet ms", "verdana"], {}, {:onchange => "javascript:fb_generator('');"} %>
+      <br/>
+        <span class="info">
+          <%= t("fb_font") %>
+        </span>
+    </p>
+
+    <p>
+      <label><%= t('fb_color') %></label><br/>
+      <%= f.select :preferred_color, ["light", "dark"], {}, {:onchange => "javascript:fb_generator('');"} %>
+      <br/>
+        <span class="info">
+          <%= t("fb_color") %>
+        </span>
+    </p>
+
+  </div>
+</div>

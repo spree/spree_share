@@ -1,0 +1,11 @@
+<div style="display: inline;float: left;width: 270px;margin: 10px 0"><fb:like show_faces="true" width="450" font="verdana"></fb:like></div>
+
+<% content_for :head do %>
+  <%= javascript_include_tag("http://connect.facebook.net/en_US/all.js#xfbml=1")%>
+  <%= tag('meta', :property => 'og:title', :content => @product.name) %>
+  <%= tag('meta', :property => 'og:type', :content => "product") %>
+  <%= tag('meta', :property => 'og:url', :content => "http://#{Spree::Config[:site_url]}#{product_path(@product)}") %>
+  <%= tag('meta', :property => 'og:image', :content => "http://#{Spree::Config[:site_url]}#{@product.images.first.attachment.url(:product)}") if @product.images %>
+  <%= tag('meta', :property => 'og:site_name', :content => Spree::Config[:site_name]) %>
+  <%= tag('meta', :property => 'og:description', :content => @product.meta_description) if @product.meta_description.present? %>
+<% end %>

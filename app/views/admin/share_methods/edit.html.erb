@@ -1,0 +1,21 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <%= button_link_to t("new_social_method"), new_object_url, :icon => 'add'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%= t("share_settings") %></h1>
+<div id="fb_like_preview"></div>
+<%= form_for(:share_method, :url => admin_share_method_path(@share_method), :html => {:name => 'settingpage', :id => 'settingpage', :class => 'settingpage', :method => :put}) do |f| %>
+  <%= render :partial => "admin/share_methods/form", :locals => { :f => f } %>
+  <p class="form-buttons"><%= button t("update") %></p>
+<% end %>
+<script type="text/javascript"> fb_generator(""); </script>
+<% content_for :head do %>
+  <%= javascript_include_tag("spree_share.js")%>
+<% end %>

@@ -1,6 +1,6 @@
 <div class="yui-g">
   <div class="yui-u first">
-    <%= f.hidden_field :name, :value => "facebook" %>
+    <%= f.hidden_field :preferred_provider, :value => "facebook" %>
     <p>
       <label><%= t("environment") %></label>
       <br/>
@@ -13,7 +13,7 @@
     <p>
       <%= f.check_box :active, {:style => "vertical-align:middle;"} %>
       <label>
-        <%= t('social_enable_provider') %>
+        <%= t('enable') %>
       </label>
     </p>
 
@@ -32,7 +32,7 @@
 
     <p>
       <label><%= t('fb_width') %></label><br/>
-      <%= f.text_field :preferred_width, :size => 40, :maxlength => 4, :onchange => "javascript:fb_generator('');" %>
+      <%= f.text_field :preferred_width, :size => 40, :maxlength => 4, :value => (@share_method.preferred_width || '450'), :onchange => "javascript:fb_generator('');" %>
       <br/>
         <span class="info">
           <%= t("fb_width") %>

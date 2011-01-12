@@ -9,13 +9,33 @@
   <br class='clear' />
 </div>
 
-<h1><%= t("share_settings") %></h1>
-<div id="fb_like_preview"></div>
-<%= form_for(:facebook_method, :url => collection_url, :html => {:name => 'settingpage', :id => 'settingpage', :class => 'settingpage'}) do |f| %>
-  <%= render :partial => "admin/share_methods/form", :locals => { :f => f } %>
-  <p class="form-buttons"><%= button t("create") %></p>
-<% end %>
-<script type="text/javascript"> fb_generator(""); </script>
-<% content_for :head do %>
-  <%= javascript_include_tag("spree_share.js")%>
-<% end %>
+<h1><%= t("social_methods") %></h1>
+
+<table class="index">
+  <thead>
+    <%= hook :admin_social_methods_index_headers do %>
+      <th><%= t("provider") %></th>
+      <th><%= t("environment") %></th>
+      <th><%= t("active") %></th>
+    <% end %>
+    <th>
+      <%= hook :admin_social_methods_index_header_actions %>
+    </th>
+  </thead>
+  <tbody>
+    <% @share_methods.each do |method|%>
+      <tr id="<%= dom_id method %>">
+        <%- locals = {:method => method} %>
+        <%= hook :admin_trackers_index_rows, locals do %>
+          <td><%= method.preferred_provider %></td>
+          <td><%= method.environment.to_s.titleize %></td>
+          <td><%= method.active ? t(:yes) : t(:no) %></td>
+        <% end %>
+        <td>
+        	<%= link_to_edit method %> &nbsp;
+        	<%= link_to_delete method %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

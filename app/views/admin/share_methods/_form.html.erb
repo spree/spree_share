@@ -1,9 +1,9 @@
 <div class="yui-g">
   <div class="yui-u first">
+    <fieldset>
     <%= f.hidden_field :preferred_provider, :value => "facebook" %>
     <p>
       <label><%= t("environment") %></label>
-      <br/>
       <%= f.collection_select(:environment,
                               Configuration.configurations.keys.sort,
                               :to_s, :titleize,
@@ -16,10 +16,10 @@
         <%= t('enable') %>
       </label>
     </p>
-
+    </fieldset>
+    <fieldset>
     <p>
       <label><%= t("fb_layout_style") %></label>
-      <br/>
       <%= f.select :preferred_layout, ["standard", "button_count", "box_count"], {}, {:onchange => "javascript:fb_generator('');"} %>
     </p>
 
@@ -31,40 +31,24 @@
     </p>
 
     <p>
-      <label><%= t('fb_width') %></label><br/>
+      <label><%= t('fb_width') %></label>
       <%= f.text_field :preferred_width, :size => 40, :maxlength => 4, :value => (@share_method.preferred_width || '450'), :onchange => "javascript:fb_generator('');" %>
-      <br/>
-        <span class="info">
-          <%= t("fb_width") %>
-        </span>
     </p>
 
     <p>
-      <label><%= t('fb_verb') %></label><br/>
+      <label><%= t('fb_verb') %></label>
       <%= f.select :preferred_verb, ["like", "recommend"], {}, {:onchange => "javascript:fb_generator('');"} %>
-      <br/>
-        <span class="info">
-          <%= t("fb_verb") %>
-        </span>
     </p>
 
     <p>
-      <label><%= t('fb_font') %></label><br/>
+      <label><%= t('fb_font') %></label>
       <%= f.select :preferred_font, ["arial", "lucida grande", "segoe ui", "tahoma", "trebuchet ms", "verdana"], {}, {:onchange => "javascript:fb_generator('');"} %>
-      <br/>
-        <span class="info">
-          <%= t("fb_font") %>
-        </span>
     </p>
 
     <p>
-      <label><%= t('fb_color') %></label><br/>
+      <label><%= t('fb_color') %></label>
       <%= f.select :preferred_color, ["light", "dark"], {}, {:onchange => "javascript:fb_generator('');"} %>
-      <br/>
-        <span class="info">
-          <%= t("fb_color") %>
-        </span>
     </p>
-
+    </fieldset>
   </div>
 </div>

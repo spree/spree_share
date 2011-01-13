@@ -1,5 +1,6 @@
 en:
-  share_settings: Social sharing settings
+  enable: Enabled
+  share_settings: Social Sharing Settings
   share_settings_description: Configure "like" buttons and other social sharing settings (Current only Facebook is supported)
   fb_layout_style: Layout Style
   fb_show_faces: Show Faces
